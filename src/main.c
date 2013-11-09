@@ -8,11 +8,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-static void
-printword(const char *str, int n)
-{
-    printf("%s\t%d\n", str, n);
-}
  
 
 int main(int argc, char* argv[])

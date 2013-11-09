@@ -1,4 +1,6 @@
 
+#include "phonenw.h"
+
 const char* num_alpha_corres[10] = {
 	"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"
 };
@@ -6,7 +8,7 @@ const int num_alpha_count[10] = {
 	0, 0, 3, 3, 3, 3, 3, 4, 3, 4
 };
 
-static int search(const char* word);
+// static int search(const char* word);
 
 void PrintComb(int* num_group, int* alpha_index_group, int n)
 {

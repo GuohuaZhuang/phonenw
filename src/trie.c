@@ -1,26 +1,9 @@
 
-#define _GNU_SOURCE
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
+#include "trie.h"
+ 
+struct trie_node_st root = {0, 0, {NULL}};
 
-
-#define TREE_WIDTH 256
-#define WORDLENMAX 128
- 
-struct trie_node_st {
-    int count;
-    int pass; //add a count for the part-include for example 'this is' then the 'is' is hited tow times 
-    struct trie_node_st *next[TREE_WIDTH];
-};
- 
-static struct trie_node_st root={0, 0, {NULL}};
- 
-// static char *spaces=" \t\r\n/.\"\'()";
- 
-static int
-insert(const char *word)
+int insert(const char *word)
 {
     int i;
     struct trie_node_st *curr, *newnode;
@@ -46,7 +29,7 @@ insert(const char *word)
     return 0;
 }
 
-static int search(const char* word)
+int search(const char* word)
 {
 	int i;
 	struct trie_node_st *curr;
@@ -66,8 +49,7 @@ static int search(const char* word)
 	return curr->count;
 }
 
-static int
-do_travel(struct trie_node_st *rootp)
+int do_travel(struct trie_node_st *rootp)
 {
     static char worddump[WORDLENMAX+1];
     static int pos=0;
@@ -88,3 +70,8 @@ do_travel(struct trie_node_st *rootp)
     return 0;
 }
  
+void printword(const char *str, int n)
+{
+    printf("%s\t%d\n", str, n);
+}
+
