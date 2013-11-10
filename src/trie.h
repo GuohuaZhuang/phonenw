@@ -14,12 +14,12 @@
  
 struct trie_node_st {
     int count;
-    int pass; //add a count for the part-include for example 'this is' then the 'is' is hited tow times 
+	//add a count for the part-include for example 'this is' then the 'is' is hited tow times 
+    int pass; 
     struct trie_node_st *next[TREE_WIDTH];
 };
  
 extern struct trie_node_st root;
-// ={0, 0, {NULL}};
 
 int insert(const char *word);
 
